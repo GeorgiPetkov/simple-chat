@@ -8,10 +8,8 @@ const inProductionEnvironment = process.env.NODE_ENV === 'production';
 const router = express.Router();
 
 if (inProductionEnvironment) {
-  router.use(express.static(path.join(__dirname, 'dist')));
-  router.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'dist/index.html'));
-  });
+  router.get(/index\.html|main\.js|styles\.css/, (req, res) =>
+    res.sendFile(path.join(__dirname, req.path)));
 } else {
   const config = require('../webpack.config.js');
   const compiler = webpack(config);

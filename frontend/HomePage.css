@@ -1,0 +1,8 @@
+.homePage {
+  padding: 60px 0;
+}
+
+.homePage>* {
+  margin: 0 auto;
+  max-width: 640px;
+}

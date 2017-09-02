@@ -1,5 +1,3 @@
-'use strict';
-
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -42,6 +40,10 @@ module.exports = {
     }, {
       test: /\.css$/,
       loader: 'style!css?modules&localIdentName=[name]---[local]---[hash:base64:5]'
+    }],
+    rules: [{
+      test: /\.css$/,
+      use: ['style-loader', 'css-loader']
     }]
   }
 };
