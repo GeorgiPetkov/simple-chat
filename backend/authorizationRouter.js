@@ -58,7 +58,7 @@ module.exports = express.Router()
 
         repository.createUser(username, password, Role.Standard)
           .then(createdUser => proceedWithUser(req, res, createdUser))
-          .catch((err) => console.log(err) && res.status(HttpStatus.INTERNAL_SERVER_ERROR).end());
+          .catch(() => res.status(HttpStatus.INTERNAL_SERVER_ERROR).end());
       });
   })
   .delete('/logout', (req, res) => {
